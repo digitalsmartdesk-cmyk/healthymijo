@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styles from './Header.module.css';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import { asset } from '../lib/asset';
 
 interface HeaderProps {
   mobileCartAction?: boolean;
@@ -30,7 +31,7 @@ export default function Header({ mobileCartAction = false }: HeaderProps) {
       <header className={styles.header}>
         <div className={`wrap ${styles.headerInner}`}>
           <Link className={styles.brand} to="/">
-            <img src="/assets/logo.png" alt="Healthy Mijo" />
+            <img src={asset("assets/logo.png")} alt="Healthy Mijo" />
           </Link>
           <nav className={styles.nav}>
             <Link to="/" className={active === 'home' ? styles.active : ''}>Home</Link>

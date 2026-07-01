@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
+import { asset } from '../lib/asset';
 
 interface FootLink {
   label: string;
@@ -22,7 +23,7 @@ export default function Footer({ tagline, columns }: FooterProps) {
       <div className="wrap">
         <div className={styles.footGrid}>
           <div className={styles.footBrand}>
-            <img src="/assets/logo.png" alt="Healthy Mijo" />
+            <img src={asset("assets/logo.png")} alt="Healthy Mijo" />
             <p>{tagline}</p>
             <div className={styles.socials}>
               <a href="#" aria-label="Instagram">

@@ -5,6 +5,7 @@ import { getProduct } from '../data/products';
 import { mockUser } from '../data/user';
 import { useCart } from '../context/CartContext';
 import styles from './Checkout.module.css';
+import { asset } from '../lib/asset';
 
 type PayTab = 'card' | 'upi' | 'cod';
 
@@ -34,7 +35,7 @@ export default function Checkout() {
     <>
       <header className={styles.header}>
         <div className={`wrap ${styles.headerInner}`}>
-          <Link className={styles.brand} to="/"><img src="/assets/logo.png" alt="Healthy Mijo" /></Link>
+          <Link className={styles.brand} to="/"><img src={asset("assets/logo.png")} alt="Healthy Mijo" /></Link>
           <div className={styles.secureTitle}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg>Secure Checkout</div>
           <div className={styles.ssl}><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg>256-bit SSL Protected</div>
           <button className={styles.hamburger} aria-label="Menu"><span></span><span></span><span></span></button>

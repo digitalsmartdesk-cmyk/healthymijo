@@ -1,3 +1,5 @@
+import { asset } from '../lib/asset';
+
 export type Category = 'protein' | 'millet' | 'fiber' | 'kids' | 'premium' | 'classic';
 
 export interface Product {
@@ -30,7 +32,7 @@ export const products: Product[] = [
     tag: 'Bestseller',
     tagClass: 'bestseller',
     desc: 'High protein snack with roasted chana & makhana. Pour, add onion & lemon. Eat in 30 seconds.',
-    image: '/assets/products/1.jpg',
+    image: asset('assets/products/1.jpg'),
   },
   {
     id: 2,
@@ -45,7 +47,7 @@ export const products: Product[] = [
     tag: 'Millet',
     tagClass: 'millet',
     desc: 'Made with millets & super grains. Multi-grain goodness, high fibre, no frying. Gut-friendly snacking.',
-    image: '/assets/products/2.jpg',
+    image: asset('assets/products/2.jpg'),
   },
   {
     id: 3,
@@ -60,7 +62,7 @@ export const products: Product[] = [
     tag: 'High Protein',
     tagClass: 'protein',
     desc: '20g protein per pack. Made with soy, chana & super seeds. Perfect post-workout, plant-based fuel.',
-    image: '/assets/products/3.jpg',
+    image: asset('assets/products/3.jpg'),
   },
   {
     id: 4,
@@ -75,7 +77,7 @@ export const products: Product[] = [
     tag: 'Fiber Rich',
     tagClass: 'fiber',
     desc: 'Made with oats, flax seeds & roasted pulses. Digestive-friendly, chatpata flavour, high fibre.',
-    image: '/assets/products/4.jpg',
+    image: asset('assets/products/4.jpg'),
   },
   {
     id: 5,
@@ -90,7 +92,7 @@ export const products: Product[] = [
     tag: 'No Sugar',
     tagClass: 'bestseller',
     desc: 'Sweet & tangy made with natural jaggery. No refined sugar, rich in iron. A guilt-free indulgence.',
-    image: '/assets/products/5.jpg',
+    image: asset('assets/products/5.jpg'),
   },
   {
     id: 6,
@@ -105,7 +107,7 @@ export const products: Product[] = [
     tag: 'Low Calorie',
     tagClass: 'fiber',
     desc: 'Light & crunchy with millet goodness. Low calorie, high nutrition. Made for weight-conscious snackers.',
-    image: '/assets/products/6.jpg',
+    image: asset('assets/products/6.jpg'),
   },
   {
     id: 7,
@@ -120,7 +122,7 @@ export const products: Product[] = [
     tag: 'Kids',
     tagClass: 'kids',
     desc: 'Mild on spice, big on taste! Made with super grains & pulses. No artificial colours or flavours.',
-    image: '/assets/products/7.jpg',
+    image: asset('assets/products/7.jpg'),
   },
   {
     id: 8,
@@ -135,7 +137,7 @@ export const products: Product[] = [
     tag: 'Premium',
     tagClass: 'premium',
     desc: 'Loaded with cashews, almonds & raisins. Rich in natural nutrition. Nutritious, delicious & truly premium.',
-    image: '/assets/products/8.jpg',
+    image: asset('assets/products/8.jpg'),
   },
 ];
 

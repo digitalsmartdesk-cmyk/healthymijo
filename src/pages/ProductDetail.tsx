@@ -6,8 +6,9 @@ import { productFooter } from '../data/footerContent';
 import { getProduct } from '../data/products';
 import { useCart } from '../context/CartContext';
 import styles from './ProductDetail.module.css';
+import { asset } from '../lib/asset';
 
-const THUMBS = ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg', '/assets/products/8.jpg'];
+const THUMBS = [asset('assets/products/1.jpg'), asset('assets/products/2.jpg'), asset('assets/products/3.jpg'), asset('assets/products/8.jpg')];
 const SIZES = [
   { label: '200g · ₹199' },
   { label: 'Pack of 3 · ₹549' },
