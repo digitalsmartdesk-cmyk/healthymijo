@@ -1,0 +1,245 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+  .bp-root { font-family: 'DM Sans', sans-serif; padding: 2rem 0; color: var(--color-text-primary); }
+  .bp-section { margin-bottom: 2.5rem; }
+  .bp-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 0.75rem; }
+  .bp-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; }
+  .bp-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bp-grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .bp-divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 2rem 0; }
+
+  /* Hero tagline */
+  .hero-block { background: #2D6A2D; border-radius: var(--border-radius-lg); padding: 2.5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+  .hero-tagline { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; color: #FAF7F2; line-height: 1.3; margin: 0 0 0.5rem; }
+  .hero-sub { font-family: 'DM Sans', sans-serif; font-size: 14px; color: #c8ddb8; letter-spacing: 0.06em; margin: 0; }
+  .leaf-deco { position: absolute; opacity: 0.08; font-size: 120px; top: -20px; right: -10px; line-height: 1; pointer-events: none; }
+
+  /* Brand voice adjectives */
+  .adj-pill { border-radius: 100px; padding: 0.5rem 1.25rem; display: inline-block; font-size: 15px; font-weight: 500; }
+
+  /* Colour swatches */
+  .swatch-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .swatch { border-radius: 8px; height: 56px; flex: 1; min-width: 60px; position: relative; }
+  .swatch-label { position: absolute; bottom: 6px; left: 8px; font-size: 10px; font-weight: 500; line-height: 1.3; }
+  .swatch-dark .swatch-label { color: #FAF7F2; }
+  .swatch-light .swatch-label { color: #3a3a3a; }
+
+  /* Typography showcase */
+  .type-demo-heading { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; margin: 0 0 4px; }
+  .type-demo-body { font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--color-text-secondary); margin: 0 0 8px; }
+  .type-tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); }
+
+  /* Pillars */
+  .pillar-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-size: 18px; }
+  .pillar-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; margin: 0 0 6px; }
+  .pillar-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; margin: 0; }
+
+  /* Emotional benefits */
+  .benefit-card { border-left: 3px solid #2D6A2D; padding: 0.75rem 1rem; background: var(--color-background-secondary); border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; }
+  .benefit-headline { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+  .benefit-body { font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
+
+  /* Adj cards */
+  .adj-card { border-radius: var(--border-radius-md); padding: 1rem; }
+  .adj-word { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; margin: 0 0 6px; }
+  .adj-desc { font-size: 12px; line-height: 1.5; margin: 0; }
+</style>
+
+<div class="bp-root">
+  <h2 class="sr-only">Farm Puro Chutneys – Complete Brand Strategy</h2>
+
+  <!-- Header -->
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:2rem;">
+    <div style="width:42px; height:42px; background:#2D6A2D; border-radius:10px; display:flex; align-items:center; justify-content:center;">
+      <i class="ti ti-leaf" style="color:#FAF7F2; font-size:20px;" aria-hidden="true"></i>
+    </div>
+    <div>
+      <p style="font-family:'Playfair Display',serif; font-size:20px; font-weight:600; margin:0; color:#2D6A2D;">Farm Puro Chutneys</p>
+      <p style="font-size:12px; color:var(--color-text-secondary); margin:0; letter-spacing:0.08em; text-transform:uppercase;">Brand Strategy Document</p>
+    </div>
+  </div>
+
+  <!-- HERO TAGLINE -->
+  <div class="bp-section">
+    <p class="bp-label">Hero tagline</p>
+    <div class="hero-block">
+      <div class="leaf-deco" aria-hidden="true">🌿</div>
+      <p class="hero-tagline">"From the farm. Fresh to your table.<br>Always Pure."</p>
+      <p class="hero-sub">Alternate: "Taste the real India. No shortcuts."</p>
+    </div>
+  </div>
+
+  <hr class="bp-divider">
+
+  <!-- BRAND VOICE -->
+  <div class="bp-section">
+    <p class="bp-label">Brand voice &amp; tone — 3 defining adjectives</p>
+    <div class="bp-grid3">
+      <div class="adj-card bp-card">
+        <p class="adj-word" style="color:#2D6A2D;">Warm</p>
+        <p class="adj-desc" style="color:var(--color-text-secondary);">Speaks like a trusted family cook — knowledgeable but never preachy. Celebrates home traditions with genuine affection.</p>
+      </div>
+      <div class="adj-card bp-card">
+        <p class="adj-word" style="color:#6B3A1F;">Honest</p>
+        <p class="adj-desc" style="color:var(--color-text-secondary);">Says exactly what's in the jar. No marketing fluff. If it's fresh, say it. If it's spicy, warn them. Earns trust through transparency.</p>
+      </div>
+      <div class="adj-card bp-card">
+        <p class="adj-word" style="color:#3a7a3a;">Rooted</p>
+        <p class="adj-desc" style="color:var(--color-text-secondary);">Deeply grounded in regional Indian culinary heritage. Names recipes by origin. Respects the craft behind every chutney.</p>
+      </div>
+    </div>
+    <div class="bp-card" style="margin-top:12px; background:var(--color-background-secondary);">
+      <p style="font-size:13px; color:var(--color-text-secondary); margin:0; line-height:1.7;"><strong style="color:var(--color-text-primary);">In practice:</strong> Write copy as if a knowledgeable farmer's daughter is narrating — confident about ingredients, proud of heritage, never corporate. Use "we" sparingly; let the product speak. Avoid: buzzwords like "artisanal", "curated", "crafted experience". Prefer: "stone-ground", "sun-dried", "made this week".</p>
+    </div>
+  </div>
+
+  <hr class="bp-divider">
+
+  <!-- COLOUR PALETTE -->
+  <div class="bp-section">
+    <p class="bp-label">Extended colour palette</p>
+    <div style="margin-bottom:10px;">
+      <p style="font-size:12px; color:var(--color-text-secondary); margin:0 0 8px;">Primary — Logo colours</p>
+      <div class="swatch-row">
+        <div class="swatch swatch-dark" style="background:#2D6A2D; flex:2;">
+          <div class="swatch-label">#2D6A2D<br>Forest Green</div>
+        </div>
+        <div class="swatch swatch-dark" style="background:#6B3A1F; flex:2;">
+          <div class="swatch-label">#6B3A1F<br>Tamarind Brown</div>
+        </div>
+        <div class="swatch swatch-light" style="background:#FAF7F2; border:0.5px solid #e5e0d8; flex:2;">
+          <div class="swatch-label">#FAF7F2<br>Cream White</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-bottom:10px;">
+      <p style="font-size:12px; color:var(--color-text-secondary); margin:0 0 8px;">Secondary — Extended palette</p>
+      <div class="swatch-row">
+        <div class="swatch swatch-dark" style="background:#E8531A;">
+          <div class="swatch-label">#E8531A<br>Chilli Red</div>
+        </div>
+        <div class="swatch swatch-dark" style="background:#C8982A;">
+          <div class="swatch-label">#C8982A<br>Turmeric Gold</div>
+        </div>
+        <div class="swatch swatch-light" style="background:#E8F5E0;">
+          <div class="swatch-label">#E8F5E0<br>Mint Mist</div>
+        </div>
+        <div class="swatch swatch-light" style="background:#F5EDE0;">
+          <div class="swatch-label">#F5EDE0<br>Coconut Pale</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:12px; color:var(--color-text-secondary); margin:0 0 8px;">Neutrals &amp; text</p>
+      <div class="swatch-row">
+        <div class="swatch swatch-dark" style="background:#1E1E1E;">
+          <div class="swatch-label">#1E1E1E<br>Charcoal</div>
+        </div>
+        <div class="swatch swatch-dark" style="background:#4A4A4A;">
+          <div class="swatch-label">#4A4A4A<br>Slate Grey</div>
+        </div>
+        <div class="swatch swatch-light" style="background:#D4CFC6;">
+          <div class="swatch-label">#D4CFC6<br>Stone</div>
+        </div>
+        <div class="swatch swatch-light" style="background:#F0EBE3;">
+          <div class="swatch-label">#F0EBE3<br>Parchment</div>
+        </div>
+      </div>
+    </div>
+    <div class="bp-card" style="margin-top:12px; background:var(--color-background-secondary);">
+      <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.6;"><strong style="color:var(--color-text-primary);">Usage rules:</strong> Forest Green + Cream White = primary CTA. Tamarind Brown = headings, premium touch. Chilli Red = urgency/limited stock only. Turmeric Gold = highlights, badges. Mint Mist + Coconut Pale = product card backgrounds.</p>
+    </div>
+  </div>
+
+  <hr class="bp-divider">
+
+  <!-- TYPOGRAPHY -->
+  <div class="bp-section">
+    <p class="bp-label">Typography system — Google Fonts</p>
+    <div class="bp-grid2">
+      <div class="bp-card">
+        <p class="bp-label" style="margin-bottom:0.5rem;">Heading font</p>
+        <p class="type-demo-heading">Playfair Display</p>
+        <p class="type-demo-body">Aa Bb Cc — Heritage, warmth, premium feel</p>
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <span class="type-tag">font-weight: 400</span>
+          <span class="type-tag">font-weight: 600</span>
+          <span class="type-tag">Serif</span>
+        </div>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:10px 0 0; line-height:1.5;">Use for: page titles, product names, hero text, pull quotes. Evokes hand-written recipe books and Indian kitchen aesthetics.</p>
+      </div>
+      <div class="bp-card">
+        <p class="bp-label" style="margin-bottom:0.5rem;">Body font</p>
+        <p class="type-demo-heading" style="font-family:'DM Sans',sans-serif; font-weight:400; font-size:18px;">DM Sans</p>
+        <p class="type-demo-body" style="font-family:'DM Sans',sans-serif;">Aa Bb Cc — Clean, readable, modern</p>
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <span class="type-tag">font-weight: 300</span>
+          <span class="type-tag">font-weight: 400</span>
+          <span class="type-tag">font-weight: 500</span>
+        </div>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:10px 0 0; line-height:1.5;">Use for: descriptions, ingredients, nav, CTAs, all UI text. Pairs beautifully with Playfair — the balance of old-world and modern.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="bp-divider">
+
+  <!-- MESSAGING PILLARS -->
+  <div class="bp-section">
+    <p class="bp-label">3 brand messaging pillars</p>
+    <div class="bp-grid3">
+      <div class="bp-card">
+        <div class="pillar-icon" style="background:#E8F5E0;">
+          <i class="ti ti-plant" style="color:#2D6A2D;" aria-hidden="true"></i>
+        </div>
+        <p class="pillar-title">Purity you can taste</p>
+        <p class="pillar-body">No preservatives. No artificial colours. No shortcuts. Every jar contains ingredients you'd recognise from your grandmother's kitchen — and nothing else.</p>
+        <p style="font-size:11px; font-weight:500; color:#2D6A2D; margin:8px 0 0; text-transform:uppercase; letter-spacing:0.08em;">Proof point: shelf life 30 days, always refrigerated</p>
+      </div>
+      <div class="bp-card">
+        <div class="pillar-icon" style="background:#F5EDE0;">
+          <i class="ti ti-home" style="color:#6B3A1F;" aria-hidden="true"></i>
+        </div>
+        <p class="pillar-title">Recipes with a regional soul</p>
+        <p class="pillar-body">Each chutney traces back to a specific regional tradition — Maharashtrian Thecha, Coastal Coconut, Pune-style Garlic. Geography is flavour.</p>
+        <p style="font-size:11px; font-weight:500; color:#6B3A1F; margin:8px 0 0; text-transform:uppercase; letter-spacing:0.08em;">Proof point: origin story on every product page</p>
+      </div>
+      <div class="bp-card">
+        <div class="pillar-icon" style="background:#fef5e4;">
+          <i class="ti ti-clock" style="color:#C8982A;" aria-hidden="true"></i>
+        </div>
+        <p class="pillar-title">Made this week, not months ago</p>
+        <p class="pillar-body">Freshness is a verb, not a label. Farm Puro batches are made to order. You'll see the batch date on every jar — because we're proud of it.</p>
+        <p style="font-size:11px; font-weight:500; color:#a07010; margin:8px 0 0; text-transform:uppercase; letter-spacing:0.08em;">Proof point: batch date printed on every lid</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="bp-divider">
+
+  <!-- EMOTIONAL BENEFITS -->
+  <div class="bp-section">
+    <p class="bp-label">Emotional benefits — lead with these on the homepage</p>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div class="benefit-card">
+        <p class="benefit-headline">The taste of home, wherever home is</p>
+        <p class="benefit-body">For NRIs in London or Bengaluru professionals who grew up on homemade chutneys — Farm Puro is the jar that closes the distance. Open it and smell your mother's kitchen.</p>
+      </div>
+      <div class="benefit-card" style="border-left-color:#6B3A1F;">
+        <p class="benefit-headline">Feed your family what you can actually trust</p>
+        <p class="benefit-body">You read labels. You care about what your children eat. Farm Puro is for parents who refuse to compromise — premium price, zero compromise on ingredients.</p>
+      </div>
+      <div class="benefit-card" style="border-left-color:#C8982A;">
+        <p class="benefit-headline">Eat well without spending your Sunday cooking</p>
+        <p class="benefit-body">Urban professionals deserve restaurant-quality accompaniments on a Tuesday night. Farm Puro turns a simple dal-roti into something special — in the time it takes to open a jar.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer note -->
+  <div style="text-align:center; padding-top:1rem;">
+    <p style="font-size:12px; color:var(--color-text-secondary); margin:0; font-style:italic;">Farm Puro Chutneys · Brand Strategy 2025</p>
+  </div>
+</div>

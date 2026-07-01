@@ -1,0 +1,199 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+.root{font-family:'DM Sans',sans-serif;padding:1.5rem 0;color:var(--color-text-primary);}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;}
+.card-top{padding:1rem 1.1rem 0.75rem;border-bottom:0.5px solid var(--color-border-tertiary);}
+.card-accent{height:4px;width:100%;}
+.product-num{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:4px;}
+.product-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;line-height:1.2;margin-bottom:6px;}
+.tagline{font-size:13px;font-style:italic;color:var(--color-text-secondary);line-height:1.4;margin-bottom:10px;font-family:'Playfair Display',serif;}
+.hero-pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:3px 10px;border-radius:100px;letter-spacing:0.04em;}
+.card-body{padding:0.85rem 1.1rem;}
+.desc{font-size:13px;line-height:1.7;color:var(--color-text-secondary);margin-bottom:0.85rem;}
+.section-label{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:6px;}
+.pair-list{display:flex;flex-direction:column;gap:4px;}
+.pair-item{display:flex;align-items:baseline;gap:6px;font-size:12px;color:var(--color-text-secondary);}
+.pair-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+</style>
+
+<div class="root">
+<h2 class="sr-only">Farm Puro Chutneys — all 9 product descriptions</h2>
+
+<div class="grid">
+
+<div class="card">
+  <div class="card-accent" style="background:#6B3A1F;"></div>
+  <div class="card-top">
+    <p class="product-num">01 · Sweet</p>
+    <p class="product-name">Tamarind Date Chutney</p>
+    <p class="tagline">"The one that makes everything taste like a celebration."</p>
+    <span class="hero-pill" style="background:#F5EDE0;color:#6B3A1F;"><i class="ti ti-star" style="font-size:12px;" aria-hidden="true"></i> Sun-dried Tamarind</span>
+  </div>
+  <div class="card-body">
+    <p class="desc">Thick, dark, and deeply sweet-tangy — the kind of chutney that transforms a plain samosa into a memory. Medjool dates round off the tamarind's pucker with a natural caramel softness. Spoon it over chaats, swirl it into dahi, or let it do its quiet magic as a dipping sauce for anything fried.</p>
+    <p class="section-label">Best paired with</p>
+    <div class="pair-list">
+      <div class="pair-item"><div class="pair-dot" style="background:#6B3A1F;"></div><span>Samosa & kachori with masala chai</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#6B3A1F;"></div><span>Dahi puri & sev puri chaat</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#6B3A1F;"></div><span>Kebab platter as a table chutney</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-accent" style="background:#E8F5E0;border-bottom:0.5px solid #c8ddb8;"></div>
+  <div class="card-top">
+    <p class="product-num">02 · Light</p>
+    <p class="product-name">Coconut Chutney</p>
+    <p class="tagline">"Cool, coastal, and ready in seconds."</p>
+    <span class="hero-pill" style="background:#E8F5E0;color:#2D6A2D;"><i class="ti ti-leaf" style="font-size:12px;" aria-hidden="true"></i> Fresh-scraped Coconut</span>
+  </div>
+  <div class="card-body">
+    <p class="desc">Pale, creamy, and tempered with a mustard-curry leaf tadka that pops the moment it hits the jar. This is South Indian breakfast in a spoon — mild enough for children, layered enough for those who know what they're tasting. Pairs with idli and dosa, but holds its own alongside any mildly spiced dish.</p>
+    <p class="section-label">Best paired with</p>
+    <div class="pair-list">
+      <div class="pair-item"><div class="pair-dot" style="background:#2D6A2D;"></div><span>Idli-dosa breakfast spread</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#2D6A2D;"></div><span>Pesarattu & uttapam</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#2D6A2D;"></div><span>Spread on multigrain toast for a light lunch</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-accent" style="background:#E8531A;"></div>
+  <div class="card-top">
+    <p class="product-num">03 · Bold</p>
+    <p class="product-name">Garlic Red Chutney</p>
+    <p class="tagline">"The loudest jar on the table — and the first empty."</p>
+    <span class="hero-pill" style="background:#FAECE7;color:#993C1D;"><i class="ti ti-flame" style="font-size:12px;" aria-hidden="true"></i> Whole Kashmiri Chillies</span>
+  </div>
+  <div class="card-body">
+    <p class="desc">Deep red, aggressively garlicky, with a slow-building heat that settles warmly in the chest. Stone-ground in small batches so the garlic stays sharp, not bitter. This is the chutney that converts people — one bite with a vada pav and nothing else quite satisfies again. Use it boldly; it won't apologise.</p>
+    <p class="section-label">Best paired with</p>
+    <div class="pair-list">
+      <div class="pair-item"><div class="pair-dot" style="background:#E8531A;"></div><span>Vada pav & batata vada</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#E8531A;"></div><span>Tandoori roti with dal makhani</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#E8531A;"></div><span>Grilled paneer & chicken tikka marinade</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-accent" style="background:#5DCAA5;"></div>
+  <div class="card-top">
+    <p class="product-num">04 · Cooling</p>
+    <p class="product-name">Coriander Mint Chutney</p>
+    <p class="tagline">"Bright, herby, and instantly refreshing."</p>
+    <span class="hero-pill" style="background:#E1F5EE;color:#085041;"><i class="ti ti-plant-2" style="font-size:12px;" aria-hidden="true"></i> Garden-fresh Coriander</span>
+  </div>
+  <div class="card-body">
+    <p class="desc">The colour of early monsoon — vivid green with a clean herbal bite and a whisper of lime. Made from coriander and mint picked at peak freshness, ground same-day so nothing goes dull. Works as a cooling counterpoint to anything rich or spiced, and doubles as the world's best sandwich spread.</p>
+    <p class="section-label">Best paired with</p>
+    <div class="pair-list">
+      <div class="pair-item"><div class="pair-dot" style="background:#0F6E56;"></div><span>Seekh kebab & shami kebab platter</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#0F6E56;"></div><span>Dhokla & khandvi snack board</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#0F6E56;"></div><span>Spread inside kathi rolls & frankie</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-accent" style="background:#C8982A;"></div>
+  <div class="card-top">
+    <p class="product-num">05 · Staple</p>
+    <p class="product-name">Ginger-Garlic Paste</p>
+    <p class="tagline">"The base of every great Indian dish, done right."</p>
+    <span class="hero-pill" style="background:#FAEEDA;color:#633806;"><i class="ti ti-clock" style="font-size:12px;" aria-hidden="true"></i> Fresh-pressed, no vinegar</span>
+  </div>
+  <div class="card-body">
+    <p class="desc">No vinegar. No filler. Just raw ginger and whole garlic, ground together at the right ratio — 40:60, the way most home cooks have always known it tastes best. Pungent, honest, and ready to go straight into the kadhai without the sting of preservatives. Your cooking will taste the difference immediately.</p>
+    <p class="section-label">Best paired with</p>
+    <div class="pair-list">
+      <div class="pair-item"><div class="pair-dot" style="background:#C8982A;"></div><span>Mutton & chicken curries as the base</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#C8982A;"></div><span>Marinades for tikka & tandoori dishes</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#C8982A;"></div><span>Rajma-chawal & dal tadka</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-accent" style="background:#D85A30;"></div>
+  <div class="card-top">
+    <p class="product-num">06 · Everyday</p>
+    <p class="product-name">Tomato Onion Chutney</p>
+    <p class="tagline">"The chutney that goes with absolutely everything."</p>
+    <span class="hero-pill" style="background:#FAECE7;color:#712B13;"><i class="ti ti-sun" style="font-size:12px;" aria-hidden="true"></i> Vine-ripened Tomatoes</span>
+  </div>
+  <div class="card-body">
+    <p class="desc">Slow-cooked until the tomatoes collapse and the onions turn sweet, with just enough chilli to remind you this is Indian cooking. Jammy, slightly smoky, and versatile in the truest sense — it belongs at breakfast alongside idli as much as it does at dinner next to phulkas. The jar that never gets old.</p>
+    <p class="section-label">Best paired with</p>
+    <div class="pair-list">
+      <div class="pair-item"><div class="pair-dot" style="background:#D85A30;"></div><span>Idli-dosa & South Indian tiffin</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#D85A30;"></div><span>Plain phulka with ghee</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#D85A30;"></div><span>Egg bhurji & akuri</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-accent" style="background:#3B6D11;"></div>
+  <div class="card-top">
+    <p class="product-num">07 · Aromatic</p>
+    <p class="product-name">Curry Leaf Chutney</p>
+    <p class="tagline">"The underrated hero of South Indian cooking."</p>
+    <span class="hero-pill" style="background:#EAF3DE;color:#27500A;"><i class="ti ti-leaf" style="font-size:12px;" aria-hidden="true"></i> Fresh Curry Leaves, hand-picked</span>
+  </div>
+  <div class="card-body">
+    <p class="desc">Dark olive-green, earthy, and deeply aromatic in the way only fresh curry leaves can be — a scent that fills a kitchen and a flavour you can't quite name but always recognise. Blended with roasted chana dal and green chilli for texture and heat. Rare to find outside home kitchens. Rarer to find made fresh.</p>
+    <p class="section-label">Best paired with</p>
+    <div class="pair-list">
+      <div class="pair-item"><div class="pair-dot" style="background:#3B6D11;"></div><span>Rava idli & set dosa</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#3B6D11;"></div><span>Mixed into curd rice for depth</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#3B6D11;"></div><span>Alongside Chettinad & Andhra curries</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-accent" style="background:#E24B4A;"></div>
+  <div class="card-top">
+    <p class="product-num">08 · Fiery</p>
+    <p class="product-name">Green Chilli Thecha</p>
+    <p class="tagline">"Maharashtrian fire, pounded not ground."</p>
+    <span class="hero-pill" style="background:#FCEBEB;color:#791F1F;"><i class="ti ti-flame" style="font-size:12px;" aria-hidden="true"></i> Hirvi Mirchi, stone-pounded</span>
+  </div>
+  <div class="card-body">
+    <p class="desc">Coarse, chunky, fiercely hot — thecha is not a chutney, it's a statement. Pounded (never blended) with roasted peanuts and garlic until you have something that bites back. The texture is everything: uneven, rustic, alive. A spoonful alongside bhakri and thick curd is lunch that asks nothing else of you.</p>
+    <p class="section-label">Best paired with</p>
+    <div class="pair-list">
+      <div class="pair-item"><div class="pair-dot" style="background:#E24B4A;"></div><span>Jowar bhakri with raw onion & curd</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#E24B4A;"></div><span>Varan-bhat (Maharashtrian dal-rice)</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#E24B4A;"></div><span>Thalipeeth with white butter</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-accent" style="background:#BA7517;"></div>
+  <div class="card-top">
+    <p class="product-num">09 · Dry</p>
+    <p class="product-name">Peanut Garlic Chutney</p>
+    <p class="tagline">"Dry, nutty, garlicky — and dangerously addictive."</p>
+    <span class="hero-pill" style="background:#FAEEDA;color:#633806;"><i class="ti ti-grain" style="font-size:12px;" aria-hidden="true"></i> Dry-roasted Vidarbha Peanuts</span>
+  </div>
+  <div class="card-body">
+    <p class="desc">Coarsely ground, never smooth — the dry chutney that Maharashtrian households keep in a steel dabba and reach for daily. Roasted peanuts give it a toasty depth; raw garlic cuts through with a clean sharpness; red chilli brings warmth without heat. Sprinkle on poha, mix into curd, or eat directly off the spoon.</p>
+    <p class="section-label">Best paired with</p>
+    <div class="pair-list">
+      <div class="pair-item"><div class="pair-dot" style="background:#BA7517;"></div><span>Poha & upma at breakfast</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#BA7517;"></div><span>Sprinkled on sabudana khichdi</span></div>
+      <div class="pair-item"><div class="pair-dot" style="background:#BA7517;"></div><span>Bhakri with oil & alongside misal pav</span></div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>

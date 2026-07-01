@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Track Your Order — Healthy Mijo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{--brown:#8B3A0F;--brown-deep:#5C2208;--brown-soft:#B05A28;--brown-tint:#FDF0E6;--brown-tint-2:#F5DBC4;--green:#4C8B2A;--green-deep:#2F5E18;--green-soft:#6EAB42;--green-tint:#EBF5E1;--orange:#E05918;--orange-deep:#B84010;--orange-tint:#FEF0E8;--cream:#FAF5EC;--cream-warm:#F2E9D4;--white:#FFFFFF;--ink:#2A1505;--ink-soft:#7A5030;--rule:rgba(42,21,5,.08);--rule-strong:rgba(42,21,5,.15)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  input{font-family:inherit;font-size:15px;color:var(--ink)}
+  h1,h2,h3,.serif{font-family:'DM Serif Display',serif;font-weight:400;letter-spacing:.01em}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 40px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--brown)}
+
+  .header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:2px solid var(--brown-tint)}
+  .header-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:80px;gap:24px}
+  .brand img{height:52px;width:auto}
+  .nav{display:flex;gap:36px;justify-content:center}
+  .nav a{font-size:14px;font-weight:600;color:var(--ink);position:relative;padding:6px 0}
+  .nav a:hover::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2.5px;background:var(--orange);border-radius:2px}
+  .header-right{display:flex;justify-content:flex-end;align-items:center;gap:16px}
+  .icon-btn{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;color:var(--ink)}
+  .icon-btn:hover{background:var(--brown-tint)}
+  .cart{position:relative}
+  .cart-badge{position:absolute;top:4px;right:4px;background:var(--orange);color:#fff;font-size:10px;font-weight:800;min-width:16px;height:16px;border-radius:8px;display:grid;place-items:center;padding:0 3px}
+  .login{font-size:13px;font-weight:700;color:var(--brown-deep)}
+  .login:hover{color:var(--orange)}
+  .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;cursor:pointer;border:0;background:none;border-radius:8px}
+  .hamburger span{display:block;width:100%;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .2s}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-nav{display:none;position:fixed;inset:0;top:80px;background:rgba(250,245,236,.98);z-index:40;flex-direction:column;padding:32px 24px;gap:0}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a.nav-link{font-family:'DM Serif Display',serif;font-size:26px;color:var(--ink);padding:16px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center}
+  .mobile-nav a.nav-link::after{content:"→";font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;color:var(--brown)}
+  .mobile-nav .m-actions{display:flex;gap:12px;margin-top:28px}
+  .mobile-nav .m-actions a{font-size:13px;font-weight:700;padding:13px 20px;border-radius:999px;flex:1;text-align:center;text-transform:uppercase;letter-spacing:.06em}
+  .m-orange{background:var(--orange);color:#fff}
+  .m-outline{border:2px solid var(--brown-deep);color:var(--brown-deep)}
+
+  .page-top{background:var(--brown-deep);color:#FAF5EC;padding:48px 0 56px;position:relative;overflow:hidden}
+  .pt-pattern{position:absolute;inset:0;opacity:.06;pointer-events:none}
+  .pt-inner{position:relative}
+  .crumb{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:rgba(250,245,236,.6);margin-bottom:16px}
+  .crumb a:hover{color:var(--green-soft)}
+  .crumb .here{color:var(--green-soft)}
+  .page-top h1{font-family:'DM Serif Display',serif;font-size:52px;color:#FFF8E7;line-height:1.04}
+  .page-top h1 em{font-style:italic;color:var(--green-soft)}
+  .page-top p{font-size:15px;color:rgba(250,245,236,.75);margin-top:12px;max-width:500px;font-weight:500}
+
+  .lookup-section{padding:52px 0}
+  .lookup-card{background:var(--white);border:1px solid var(--rule);border-radius:18px;padding:40px 44px;box-shadow:0 16px 44px -28px rgba(42,21,5,.22);max-width:720px;margin:0 auto}
+  .lookup-card .card-head{margin-bottom:28px}
+  .lookup-card .card-head .eyebrow{margin-bottom:8px}
+  .lookup-card .card-head h2{font-size:30px;line-height:1.1;margin-bottom:6px}
+  .lookup-card .card-head h2 em{font-style:italic;color:var(--brown-deep)}
+  .lookup-card .card-head p{font-size:14px;color:var(--ink-soft);font-weight:500}
+  .lookup-row{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brown-deep);font-weight:700}
+  .input{width:100%;background:var(--cream-warm);border:1.5px solid var(--rule);border-radius:12px;padding:13px 14px;font-size:15px;color:var(--ink);outline:none;font-family:'Plus Jakarta Sans',sans-serif;transition:border-color .15s,background .15s,box-shadow .15s}
+  .input:focus{border-color:var(--brown);background:var(--white);box-shadow:0 0 0 4px rgba(139,58,15,.10)}
+  .input::placeholder{color:#9A8B7A}
+  .track-btn{display:inline-flex;align-items:center;gap:9px;background:var(--orange);color:#fff;padding:14px 22px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:background .15s,transform .15s}
+  .track-btn:hover{background:var(--orange-deep);transform:translateY(-1px)}
+  .lookup-note{margin-top:12px;font-size:12px;color:var(--ink-soft);display:flex;align-items:center;gap:7px;font-weight:600}
+  .lookup-note svg{color:var(--green);flex-shrink:0}
+
+  .results{padding:0 0 84px;display:none}
+  .results.visible{display:block}
+  .order-banner{background:var(--brown-tint);border:1px solid var(--brown-tint-2);border-radius:16px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:32px;flex-wrap:wrap}
+  .ob-eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--brown-deep);font-weight:700;margin-bottom:7px}
+  .ob-left h2{font-family:'DM Serif Display',serif;font-size:26px;color:var(--ink);line-height:1.1}
+  .ob-left p{font-size:13px;color:var(--ink-soft);margin-top:5px;font-weight:500}
+  .ob-right{text-align:right;flex-shrink:0}
+  .status-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.06em}
+  .status-pill.transit{background:var(--orange-tint);color:var(--orange-deep)}
+  .status-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.82)}}
+  .ob-right .eta{font-size:12px;color:var(--ink-soft);margin-top:7px;font-weight:600}
+  .ob-right .eta strong{color:var(--brown-deep);font-weight:700}
+
+  .results-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start}
+
+  .timeline-card{background:var(--white);border:1px solid var(--rule);border-radius:16px;padding:28px;box-shadow:0 8px 28px -20px rgba(42,21,5,.18)}
+  .tc-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--rule)}
+  .tc-head h3{font-size:20px}
+  .courier-link{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--brown-deep);border-bottom:1.5px solid var(--brown-tint-2);letter-spacing:.04em}
+  .timeline{display:flex;flex-direction:column;position:relative}
+  .timeline::before{content:"";position:absolute;left:16px;top:20px;bottom:20px;width:2px;background:repeating-linear-gradient(180deg,var(--rule-strong) 0 5px,transparent 5px 11px)}
+  .t-step{display:grid;grid-template-columns:34px 1fr;gap:16px;align-items:start;padding:0 0 26px}
+  .t-step:last-child{padding-bottom:0}
+  .t-icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;position:relative;z-index:1;border:2px solid var(--rule-strong);background:var(--white);color:var(--ink-soft)}
+  .t-step.done .t-icon{background:var(--brown);border-color:var(--brown);color:#fff}
+  .t-step.active .t-icon{background:var(--white);border-color:var(--orange);color:var(--orange);box-shadow:0 0 0 5px rgba(224,89,24,.10)}
+  .t-body .t-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);margin-bottom:3px}
+  .t-step.done .t-label,.t-step.active .t-label{color:var(--brown-deep)}
+  .t-body .t-name{font-family:'DM Serif Display',serif;font-size:17px;color:var(--ink-soft)}
+  .t-step.done .t-name,.t-step.active .t-name{color:var(--ink)}
+  .t-body .t-meta{font-size:12px;color:var(--ink-soft);margin-top:4px;font-weight:500}
+  .t-step.active .t-meta{color:var(--orange-deep);font-weight:700}
+  .t-body .t-detail{margin-top:9px;background:var(--brown-tint);border:1px solid var(--brown-tint-2);border-radius:10px;padding:11px 13px;font-size:13px;color:var(--brown-deep);line-height:1.55;display:none;font-weight:500}
+  .t-step.active .t-detail{display:block}
+
+  .map-card{background:var(--cream-warm);border:1px solid var(--rule);border-radius:14px;overflow:hidden;margin-top:14px}
+  .map-ph{height:170px;background:linear-gradient(150deg,var(--brown-tint),var(--brown-tint-2));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .map-ph::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(139,58,15,.06) 0 1px,transparent 1px 28px),repeating-linear-gradient(90deg,rgba(139,58,15,.06) 0 1px,transparent 1px 28px)}
+  .map-pin{width:44px;height:44px;border-radius:50% 50% 50% 0;background:var(--orange);transform:rotate(-45deg);display:grid;place-items:center;box-shadow:0 8px 20px -6px rgba(224,89,24,.55)}
+  .map-pin svg{transform:rotate(45deg);color:#fff}
+  .map-info{padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .map-info .addr strong{display:block;font-weight:700;font-size:14px;color:var(--ink);margin-bottom:2px}
+  .map-info .addr{font-size:13px;color:var(--ink-soft);line-height:1.5;font-weight:500}
+  .map-info .dist .km{font-family:'DM Serif Display',serif;font-size:22px;color:var(--brown-deep);line-height:1}
+  .map-info .dist small{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
+
+  .actions-row{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+  .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--brown);color:#fff;padding:13px 22px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:background .15s,transform .15s}
+  .btn-primary:hover{background:var(--brown-deep);transform:translateY(-1px)}
+  .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1.5px solid var(--rule-strong);color:var(--ink);padding:12px 20px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:all .15s}
+  .btn-secondary:hover{border-color:var(--brown);background:var(--brown-tint)}
+  .btn-ghost{display:inline-flex;align-items:center;gap:7px;color:var(--ink-soft);padding:12px 14px;font-size:13px;font-weight:600;border-bottom:1px solid var(--rule)}
+  .btn-ghost:hover{color:var(--brown-deep)}
+  .fresh-note{margin-top:24px;background:var(--brown-tint);border:1px solid var(--brown-tint-2);border-radius:12px;padding:16px 18px;display:flex;align-items:flex-start;gap:12px}
+  .fn-ic{flex-shrink:0;width:36px;height:36px;border-radius:10px;background:var(--brown);display:grid;place-items:center;color:#fff}
+  .fresh-note p{font-size:13px;color:var(--brown-deep);line-height:1.55;font-weight:500}
+  .fresh-note strong{font-weight:700}
+
+  .summary-card{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;box-shadow:0 8px 28px -20px rgba(42,21,5,.18)}
+  .sc-head{padding:20px 22px 14px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:baseline}
+  .sc-head h3{font-size:19px}
+  .sc-head .badge{font-size:10px;font-weight:700;padding:5px 12px;background:var(--brown-tint);color:var(--brown-deep);border-radius:999px;letter-spacing:.10em;text-transform:uppercase}
+  .sc-items{padding:4px 22px}
+  .sc-item{display:grid;grid-template-columns:50px 1fr auto;gap:12px;padding:13px 0;border-bottom:1px dashed var(--rule);align-items:center}
+  .sc-item:last-child{border-bottom:0}
+  .sc-thumb{width:50px;height:50px;border-radius:10px;overflow:hidden;background:var(--cream-warm);position:relative}
+  .sc-thumb img{width:100%;height:100%;object-fit:contain}
+  .sc-qty{position:absolute;top:-5px;right:-5px;width:18px;height:18px;border-radius:50%;background:var(--orange);color:#fff;font-size:10px;font-weight:800;display:grid;place-items:center}
+  .sc-body .name{font-family:'DM Serif Display',serif;font-size:14px;line-height:1.2}
+  .sc-body .meta{font-size:11px;color:var(--ink-soft);margin-top:3px;font-weight:600}
+  .sc-price{font-family:'DM Serif Display',serif;font-size:15px;color:var(--orange);white-space:nowrap}
+  .sc-totals{padding:14px 22px 8px;border-top:1px solid var(--rule);background:var(--cream)}
+  .sc-row{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-soft);padding:4px 0;font-weight:600}
+  .sc-row .v{color:var(--ink)}
+  .sc-row.grand{padding-top:12px;border-top:1px solid var(--rule-strong);margin-top:5px}
+  .sc-row.grand .k{font-family:'DM Serif Display',serif;font-size:15px;color:var(--ink)}
+  .sc-row.grand .v{font-family:'DM Serif Display',serif;font-size:21px;color:var(--orange)}
+  .sc-addr{padding:16px 22px;border-top:1px solid var(--rule)}
+  .sc-addr .lbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:7px}
+  .sc-addr .lbl svg{color:var(--brown)}
+  .sc-addr p{font-size:13px;color:var(--ink-soft);line-height:1.65;font-weight:500}
+  .sc-addr strong{color:var(--ink);display:block;margin-bottom:2px;font-weight:700}
+
+  footer{background:#1A0905;color:rgba(250,245,236,.7);padding:72px 0 0}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px}
+  .foot-brand img{height:48px;background:var(--cream);padding:6px 10px;border-radius:8px}
+  .foot-brand p{margin-top:16px;font-size:13px;line-height:1.7;max-width:260px;color:rgba(250,245,236,.7);font-weight:500}
+  .foot-col h4{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green-soft);margin-bottom:18px}
+  .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .foot-col a{font-size:13px;color:rgba(250,245,236,.7);font-weight:500}
+  .foot-col a:hover{color:#FFF8E7}
+  .copy{border-top:1px solid rgba(250,245,236,.10);padding:20px 0;display:flex;justify-content:space-between;font-size:12px;color:rgba(250,245,236,.45);font-weight:600}
+
+  @media(max-width:900px){
+    .wrap{padding:0 28px}
+    .header-inner{grid-template-columns:1fr auto;height:72px}
+    .nav,.login{display:none}
+    .hamburger{display:flex}
+    .mobile-nav{top:72px}
+    .page-top{padding:36px 0 44px}
+    .page-top h1{font-size:38px}
+    .lookup-card{padding:28px}
+    .lookup-row{grid-template-columns:1fr 1fr;gap:10px}
+    .track-btn{grid-column:1/-1;justify-content:center}
+    .results-grid{grid-template-columns:1fr;gap:22px}
+    .order-banner{flex-direction:column;align-items:flex-start;gap:14px}
+    .ob-right{text-align:left}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .foot-brand{grid-column:1/-1}
+    .copy{flex-direction:column;gap:8px;text-align:center}
+  }
+  @media(max-width:600px){
+    .wrap{padding:0 18px}
+    .header-inner{height:64px}
+    .brand img{height:40px}
+    .mobile-nav{top:64px}
+    .page-top{padding:26px 0 32px}
+    .page-top h1{font-size:28px;line-height:1.08}
+    .lookup-card{padding:22px 18px;border-radius:14px}
+    .lookup-row{grid-template-columns:1fr}
+    .track-btn{grid-column:auto;width:100%;justify-content:center}
+    .timeline-card{padding:20px 16px}
+    .actions-row{flex-direction:column}
+    .btn-primary,.btn-secondary{justify-content:center}
+    .map-info{flex-direction:column;align-items:flex-start}
+    .sc-head,.sc-items,.sc-totals,.sc-addr{padding-left:16px;padding-right:16px}
+    .foot-grid{grid-template-columns:1fr;gap:26px}
+    .foot-brand{grid-column:auto}
+  }
+  svg{display:block}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="wrap header-inner">
+    <a class="brand" href="HM Homepage.html"><img src="uploads/Healthy%20Mijo.png" alt="Healthy Mijo" /></a>
+    <nav class="nav">
+      <a href="HM Homepage.html">Home</a>
+      <a href="HM Shop.html">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="header-right">
+      <a href="HM Login.html" class="login">Sign in</a>
+      <button class="icon-btn cart" aria-label="Cart"><svg width="18" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1.2 11a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg><span class="cart-badge">3</span></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="HM Homepage.html" class="nav-link">Home</a>
+  <a href="HM Shop.html" class="nav-link">Shop</a>
+  <a href="#" class="nav-link">About</a>
+  <a href="#" class="nav-link">Blog</a>
+  <a href="#" class="nav-link">Contact</a>
+  <div class="m-actions"><a class="m-orange" href="HM Shop.html">Shop Now →</a><a class="m-outline" href="HM Login.html">Sign in</a></div>
+</nav>
+
+<section class="page-top">
+  <svg class="pt-pattern" viewBox="0 0 1100 260" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="tp" x="0" y="0" width="160" height="160" patternUnits="userSpaceOnUse" patternTransform="rotate(14)"><circle cx="80" cy="80" r="60" fill="none" stroke="#6EAB42" stroke-width="1.2"/><circle cx="148" cy="148" r="2" fill="#6EAB42"/></pattern></defs><rect width="1100" height="260" fill="url(#tp)"/></svg>
+  <div class="wrap pt-inner">
+    <div class="crumb"><a href="HM Homepage.html">Home</a><span>›</span><a href="HM Account.html">My Account</a><span>›</span><span class="here">Track Order</span></div>
+    <h1>Track your <em>order.</em></h1>
+    <p>Enter your order number and email to see exactly where your Healthy Mijo bhel is right now.</p>
+  </div>
+</section>
+
+<section class="lookup-section" id="lookup-section">
+  <div class="wrap">
+    <div class="lookup-card">
+      <div class="card-head">
+        <div class="eyebrow">Order lookup</div>
+        <h2>Find your <em>order</em></h2>
+        <p>Your order number is in the confirmation email we sent when you placed your order.</p>
+      </div>
+      <div class="lookup-row">
+        <div class="field"><label>Order number</label><input class="input" type="text" placeholder="e.g. HM-2026-1421" value="HM-2026-1421" /></div>
+        <div class="field"><label>Email address</label><input class="input" type="email" placeholder="you@example.com" value="ananya.k@gmail.com" /></div>
+        <button class="track-btn" id="track-btn">Track Order →</button>
+      </div>
+      <div class="lookup-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg>Order HM-2026-1421 is pre-loaded below as an example.</div>
+    </div>
+  </div>
+</section>
+
+<section class="results visible" id="results">
+  <div class="wrap">
+    <div class="order-banner">
+      <div class="ob-left">
+        <div class="ob-eyebrow">Order #HM-2026-1421 · Placed 24 Jun 2026</div>
+        <h2>Your Healthy Mijo bhel is out for delivery today.</h2>
+        <p>Delhivery · Tracking ID <strong style="color:var(--brown-deep)">DL49820734IN</strong> · Dispatched from Pune on 25 Jun 2026</p>
+      </div>
+      <div class="ob-right">
+        <div class="status-pill transit"><span class="dot"></span>Out for delivery</div>
+        <div class="eta">Expected <strong>Today, 1 Jul · Before 8 PM</strong></div>
+      </div>
+    </div>
+
+    <div class="results-grid">
+      <div>
+        <div class="timeline-card">
+          <div class="tc-head"><h3>Delivery timeline</h3><a href="#" class="courier-link">Open in Delhivery <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+          <div class="timeline">
+            <div class="t-step done"><div class="t-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 7 9 18l-5-5"/></svg></div><div class="t-body"><div class="t-label">Step 1</div><div class="t-name">Order placed</div><div class="t-meta">24 Jun 2026 · 10:22 AM</div></div></div>
+            <div class="t-step done"><div class="t-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 7 9 18l-5-5"/></svg></div><div class="t-body"><div class="t-label">Step 2</div><div class="t-name">Confirmed &amp; verified</div><div class="t-meta">24 Jun 2026 · 11:05 AM · Payment received</div></div></div>
+            <div class="t-step done"><div class="t-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 7 9 18l-5-5"/></svg></div><div class="t-body"><div class="t-label">Step 3</div><div class="t-name">Quality checked &amp; packed</div><div class="t-meta">25 Jun 2026 · 8:15 AM · FSSAI batch verified</div></div></div>
+            <div class="t-step done"><div class="t-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 7 9 18l-5-5"/></svg></div><div class="t-body"><div class="t-label">Step 4</div><div class="t-name">Dispatched</div><div class="t-meta">25 Jun 2026 · 2:30 PM · Handed to Delhivery</div></div></div>
+            <div class="t-step active"><div class="t-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h14l3 4v6h-2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M3 7v11h2"/></svg></div><div class="t-body"><div class="t-label">Step 5 · Now</div><div class="t-name">Out for delivery</div><div class="t-meta">1 Jul 2026 · Since 9:30 AM</div><div class="t-detail">Your delivery partner Rajan is on the way with your Healthy Mijo bhel. You'll receive a call 30 minutes before arrival. Store in a cool, dry place and keep sealed until you're ready to snack.</div></div></div>
+            <div class="t-step"><div class="t-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div><div class="t-body"><div class="t-label">Step 6</div><div class="t-name">Delivered</div><div class="t-meta">Expected: Today before 8 PM</div></div></div>
+          </div>
+        </div>
+        <div class="map-card">
+          <div class="map-ph"><div class="map-pin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg></div></div>
+          <div class="map-info"><div class="addr"><strong>Delivering to</strong>B-204, Lotus Heights, Koregaon Park, Pune 411001</div><div class="dist"><div class="km">2.8</div><small>km away</small></div></div>
+        </div>
+        <div class="actions-row">
+          <a class="btn-primary" href="HM Shop.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Reorder</a>
+          <button class="btn-secondary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Invoice</button>
+          <a class="btn-ghost" href="#">Contact support</a>
+        </div>
+        <div class="fresh-note"><div class="fn-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3c-3 5-3 9-3 12a3 3 0 0 0 6 0c0-3 0-7-3-12Z"/></svg></div><p><strong>Storage tip:</strong> Keep your Healthy Mijo bhel in an airtight container in a cool, dry place. Once opened, consume within 2–3 days for best taste and crunch. No refrigeration needed.</p></div>
+      </div>
+
+      <aside>
+        <div class="summary-card">
+          <div class="sc-head"><h3>Your order</h3><span class="badge">3 items</span></div>
+          <div class="sc-items">
+            <div class="sc-item"><div class="sc-thumb"><img src="uploads/lite/HealthyMijo%20(1).jpg" alt="" /><span class="sc-qty">2</span></div><div class="sc-body"><div class="name">Classic Protein Bhel</div><div class="meta">200g · High Protein</div></div><div class="sc-price">₹398</div></div>
+            <div class="sc-item"><div class="sc-thumb"><img src="uploads/lite/HealthyMijo%20(3).jpg" alt="" /><span class="sc-qty">1</span></div><div class="sc-body"><div class="name">Gym Bhel</div><div class="meta">200g · 20g Protein</div></div><div class="sc-price">₹229</div></div>
+          </div>
+          <div class="sc-totals">
+            <div class="sc-row"><span class="k">Subtotal</span><span class="v">₹627</span></div>
+            <div class="sc-row"><span class="k">Delivery</span><span class="v" style="color:var(--green-deep);font-size:11px;text-transform:uppercase;font-weight:700">Free</span></div>
+            <div class="sc-row grand"><span class="k">Total paid</span><span class="v">₹627</span></div>
+          </div>
+          <div class="sc-addr">
+            <div class="lbl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg>Delivery address</div>
+            <p><strong>Ananya Krishnan</strong>B-204, Lotus Heights, Koregaon Park<br/>Pune 411001, Maharashtra</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><img src="uploads/Healthy%20Mijo.png" alt="Healthy Mijo" /><p>Foods for modern lifestyles. Tasty, healthy bhel snacks ready in 30 seconds.</p></div>
+      <div class="foot-col"><h4>Shop</h4><ul><li><a href="HM Shop.html">All products</a></li><li><a href="#">High Protein</a></li><li><a href="#">Millet Based</a></li><li><a href="#">Kids Bhel</a></li></ul></div>
+      <div class="foot-col"><h4>Account</h4><ul><li><a href="HM Login.html">Sign in</a></li><li><a href="HM Account.html">My orders</a></li><li><a href="HM Order Tracking.html">Track order</a></li></ul></div>
+      <div class="foot-col"><h4>Help</h4><ul><li><a href="#">FAQ</a></li><li><a href="#">Shipping</a></li><li><a href="#">Returns</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div class="foot-col"><h4>Company</h4><ul><li><a href="#">Our story</a></li><li><a href="#">Ingredients</a></li><li><a href="#">Certifications</a></li></ul></div>
+    </div>
+    <div class="copy"><div>© 2026 Healthy Mijo Foods Pvt. Ltd. · FSSAI Lic. 10016011003814 · 100% Veg · Plant Based</div></div>
+  </div>
+</footer>
+
+<script>
+  const hamburger=document.getElementById('hamburger'),mobileNav=document.getElementById('mobile-nav');
+  hamburger.addEventListener('click',()=>{const open=mobileNav.classList.toggle('open');hamburger.classList.toggle('open',open);document.body.style.overflow=open?'hidden':'';});
+  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileNav.classList.remove('open');hamburger.classList.remove('open');document.body.style.overflow='';}));
+  document.getElementById('track-btn').addEventListener('click',()=>{
+    const r=document.getElementById('results');
+    r.classList.add('visible');
+    const top=r.getBoundingClientRect().top+window.pageYOffset-20;
+    window.scrollTo({top,behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
