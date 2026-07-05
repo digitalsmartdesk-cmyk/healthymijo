@@ -8,7 +8,7 @@ import { AuthProvider } from './context/AuthContext';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/healthymijo">
+    <BrowserRouter>
       <AuthProvider>
         <CartProvider>
           <App />
