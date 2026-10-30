@@ -8,7 +8,7 @@ import styles from './Home.module.css';
 import { asset } from '../lib/asset';
 
 const FEATURED_IDS = [1, 2, 3, 7];
-const VARIETY_IDS = [1, 2, 3, 4, 5, 6, 7, 8];
+const VARIETY_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 const MARQUEE_WORDS = ['No Maida', 'No Frying', 'No Preservatives', 'Plant Based', 'High Protein', 'Ready in 30 Seconds', '100% Veg', 'Roasted Not Fried'];
 const MARQUEE_ITEMS = [...MARQUEE_WORDS, ...MARQUEE_WORDS];
 
@@ -46,7 +46,7 @@ export default function Home() {
               <Link className={styles.btnHeroGhost} to="/product">See our bestseller →</Link>
             </div>
             <div className={styles.heroStats}>
-              <div className={styles.s}><div className={styles.n}>8</div><div className={styles.l}>Varieties</div></div>
+              <div className={styles.s}><div className={styles.n}>12</div><div className={styles.l}>Varieties</div></div>
               <div className={styles.s}><div className={styles.n}>30s</div><div className={styles.l}>Ready in</div></div>
               <div className={styles.s}><div className={styles.n}>0</div><div className={styles.l}>Maida ever</div></div>
               <div className={styles.s}><div className={styles.n}>100%</div><div className={styles.l}>Plant based</div></div>
@@ -112,7 +112,7 @@ export default function Home() {
         <div className="wrap">
           <div className={styles.productsHead}>
             <h2>Our most loved bhel</h2>
-            <Link to="/shop">View all 8 varieties →</Link>
+            <Link to="/shop">View all 12 varieties →</Link>
           </div>
           <div className={styles.productGrid}>
             {FEATURED_IDS.map((id) => {
@@ -196,7 +196,7 @@ export default function Home() {
               <div className={styles.testiStars}>★★★★★</div>
               <blockquote>"The Gym Bhel is genuinely impressive for the protein content. Tastes like street bhel, fuels like a protein supplement. Ordered 3 packs."</blockquote>
               <div className={styles.testiAuthor}><div className={styles.testiAva} style={{ background: 'var(--orange)' }}>A</div><div><div className={styles.name}>Aditya K.</div><div className={styles.sub}>Pune · Verified buyer</div></div></div>
-              <div className={styles.testiProduct}>Gym Bhel</div>
+              <div className={styles.testiProduct}>Gym Protein Bhel</div>
             </div>
           </div>
         </div>
@@ -213,7 +213,7 @@ export default function Home() {
         </svg>
         <div className="wrap">
           <div className={styles.sectionHead}>
-            <div className={`eyebrow ${styles.eyebrow}`}>8 varieties</div>
+            <div className={`eyebrow ${styles.eyebrow}`}>12 varieties</div>
             <h2>Something for <em>everyone.</em></h2>
             <p>From high-protein for gym-goers to mild masala for kids — every lifestyle has its bhel.</p>
           </div>

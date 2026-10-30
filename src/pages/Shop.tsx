@@ -58,7 +58,7 @@ export default function Shop() {
             <p>Our range of bhel snacks — high protein, millet-based, fiber-rich — no maida, no frying, no preservatives. Real ingredients, real nutrition.</p>
           </div>
           <div className={styles.phMeta}>
-            <div className={styles.m}><div className={styles.n}>8</div><div className={styles.l}>Varieties</div></div>
+            <div className={styles.m}><div className={styles.n}>12</div><div className={styles.l}>Varieties</div></div>
             <div className={styles.m}><div className={styles.n}>100%</div><div className={styles.l}>Plant Based</div></div>
             <div className={styles.m}><div className={styles.n}>30s</div><div className={styles.l}>Ready In</div></div>
           </div>
